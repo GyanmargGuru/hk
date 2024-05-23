@@ -1,0 +1,78 @@
+<html class="notranslate">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>देवनागरी कीबोर्ड</title>
+    <meta name="description" content="Devanagari Keyboard" />
+    <meta name="keywords" content="devanagari,keyboard, hindi, typing, open source" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="keystyles.css">
+	<link rel="stylesheet" href="https://unpkg.com/easymde/dist/easymde.min.css">
+</head>
+
+<body>
+
+	<textarea id="editor"></textarea>
+
+	<div id="kbcontainer">
+
+		<div id="suggestions">
+			<!-- Suggestions go here -->
+		</div>
+		<div id="keyboard">
+			<!-- Keyboard layout goes here -->
+		</div>
+		<div id="switchlayout">
+			<!-- Switch layout buttons goes here -->
+		</div>
+
+	</div>
+
+	<div class="hkbutton" id="kbclose">हिंदी कीबोर्ड बंद करें</div>
+	<div class="hkbutton" id="textht">पाठ की ऊंचाई</div>
+	<div class="hkbutton" id="kbmap">अंग्रेजी कीबोर्ड से हिंदी लिखने का नक्शा</div>
+	<div id="map"></div>
+
+	<div class="hklink">
+		<a href="https://gyanmarg.guru" target="_blank">ज्ञानमार्ग प्रवेशद्वार के सौजन्य से वितरित</a> | 
+		<a href="https://github.com/GyanmargGuru/hk" target="_blank">Source on Github</a>
+	</div>
+
+
+	<script src="https://unpkg.com/easymde/dist/easymde.min.js"></script>
+	<script>
+		var easyMDE = new EasyMDE({ element: document.getElementById('editor'), spellChecker: false });
+		var codeMirrorElement = document.querySelector('.CodeMirror');
+
+		codeMirrorElement.style.height = '300px';
+
+		document.getElementById('textht').addEventListener('click', function() {
+			if (codeMirrorElement.style.height === '500px') {
+				codeMirrorElement.style.height = '300px';
+			} else {
+				codeMirrorElement.style.height = '500px';
+			}
+		});
+
+		let showmap = 1;
+		document.getElementById('kbmap').addEventListener('click', function() {
+			if(showmap == 1) {
+				showmap = 0;
+				let map = dispMap(2);
+				document.getElementById('map').innerHTML = map;
+			}
+			else {
+				showmap = 1;
+				document.getElementById('map').innerHTML = '';
+			}
+		});
+
+	</script>
+
+
+	<script src="kb.js"></script>
+
+</body>
+
+</html>

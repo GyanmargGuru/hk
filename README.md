@@ -9,3 +9,7 @@ Devanagari Keyboard is a tool to write in Hindi using a phone or English keyboar
 * Can be included in any project
 * Free for any kind of use
 * Fork or contribute, most welcome
+
+### Dependencies
+
+The demo provided here uses EasyMDE as editor. But you can modify it to use any text element e.g. html textarea etc.
